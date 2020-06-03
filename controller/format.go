@@ -11,8 +11,8 @@ type ResInt struct {
 }
 
 type Data struct {
-	Id     primitive.ObjectID `json:"_id" bson:"_id"`
-	IdMate string             `json:"idMate" bson:"idMate"`
+	Id     primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
+	IdMate string             `json:"idMate, omitempty" bson:"idMate, omitempty"`
 	Name   string             `json:"name, omitempty" bson:"name, omitempty"`
 	Model  string             `json:"model, omitempty" bson:"model, omitempty"`
 	Tipe   string             `json:"tipe, omitempty" bson:"tipe,omitempty"`

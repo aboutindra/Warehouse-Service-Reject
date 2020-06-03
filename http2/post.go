@@ -9,7 +9,7 @@ import (
 func (h Http) InsertOne(res http.ResponseWriter, req *http.Request) {
 	h.SetHeader(res)
 	var tmpReq controller.Data
-	json.NewDecoder(req.Body).Decode(tmpReq)
+	json.NewDecoder(req.Body).Decode(&tmpReq)
 	col, con := d.MakeConnection()
 	err := d.InOne(col, tmpReq)
 	if err != nil {

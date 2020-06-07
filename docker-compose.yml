@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mongo:
+    image: 'mongo'
+    hostname: 'mongo'
+    environment:
+      - MONGO_INITDB_DATABASE=WServiceReject
+    ports:
+    - '27018:27018'
+    networks:
+      - WServiceRejectNetwork
+
+  app:
+    container_name: 'go-reject'
+    image: go-reject
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6554:6554"
+    depends_on:
+      - 'mongo'
+
+networks:
+  WServiceRejectNetwork:
+           driver: bridge

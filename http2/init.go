@@ -14,7 +14,7 @@ var bol controller.ResBool
 type Http struct{}
 
 func init() {
-	d = db.MongoDB{"mongodb://localhost:27018", "WServiceReject", "Reject"}
+	d = db.MongoDB{"mongodb://mongo-reject:27017", "WServiceReject", "Reject"}
 	c = controller.Ctrl{}
 }
 

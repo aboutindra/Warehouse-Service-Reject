@@ -1,14 +1,15 @@
 version: '3.8'
 services:
   mongo:
-    image: 'mongo'
-    hostname: 'mongo'
+    image: mongo
+    container_name: "mongo-reject"
+    restart: always
     environment:
-      - MONGO_INITDB_DATABASE=WServiceReject
+      MONGO_INITDB_ROOT_DATABASE: WServiceReject
+    volumes:
+      - './dockervolume/mongodb:/data/db'
     ports:
-    - '27018:27018'
-    networks:
-      - WServiceRejectNetwork
+      - 27017:27017
 
   app:
     container_name: 'go-reject'
@@ -17,10 +18,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "6554:6554"
+      - '6554:6554'
     depends_on:
       - 'mongo'
 
 networks:
   WServiceRejectNetwork:
-           driver: bridge
+    driver: bridge

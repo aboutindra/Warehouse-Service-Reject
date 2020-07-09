@@ -7,5 +7,5 @@ require (
 	github.com/gorilla/mux v1.7.4
 	github.com/klauspost/compress v1.10.7 // indirect
 	github.com/valyala/fasthttp v1.14.0
-	go.mongodb.org/mongo-driver v1.3.4
+	go.mongodb.org/mongo-driver v1.3.5
 )
